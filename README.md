@@ -28,4 +28,4 @@
 ### 🔗 figma link
 https://www.figma.com/design/mu03cPXgBaGseP2Jxew0Go/%5B%EB%82%B4%EB%B0%B0%EC%BA%A0%5D-%ED%8C%80-%EC%86%8C%EA%B0%9C-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=0-1&t=oE68UVa2NTJ1np6c-1
 
-<img width="696" alt="Group 15" src="https://github.com/user-attachments/assets/0d95e9fa-f27e-4ba8-b566-2f04406b8392" />
+<img width="450" alt="Group 15" src="https://github.com/user-attachments/assets/0d95e9fa-f27e-4ba8-b566-2f04406b8392" />
