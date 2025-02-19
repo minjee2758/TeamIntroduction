@@ -48,6 +48,7 @@ $(document).ready(function () {
             'link': link,
             'file': file
         };
+        
         await addDoc(collection(db, "postings"), doc);
         alert('저장 완료!');
         window.location.reload();
