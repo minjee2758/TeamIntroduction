@@ -265,11 +265,12 @@
                 let link = row['link'];
                 let title = row['title'];
                 let content = row['content'];
-                let file = row['file'];
+                let fileURL = row['fileURL'];
 
                 let temp_html =
                     `<div class="col">
               <div class="card h-100">
+                <img src="${fileURL}">
                 <div class="card-body">
                   <h5 class="card-title">${title}</h5>
                   <p class="card-text">${content}</p>
