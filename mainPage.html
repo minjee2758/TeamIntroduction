@@ -125,11 +125,20 @@
             background-color: #E8344E;
             border-radius: 11px;
             color: white;
-            box-shadow: 2px 2px gray;
             border: none;
             font-family: 'GmarketSansLight', sans-serif;
             font-weight: 600;
             padding-top: 5px;
+        }
+
+        .followingButton>button:hover {
+            box-shadow: 2px 2px gray;
+        }
+
+        .followingButton>button:active {
+            color: #E8344E;
+            background-color: white;
+            border: solid 2px #E8344E;
         }
 
         .ruleButton>button {
@@ -137,11 +146,19 @@
             height: 35px;
             background-color: #D9D9D9;
             border-radius: 11px;
-            box-shadow: 2px 2px gray;
             border: none;
             font-family: 'GmarketSansLight', sans-serif;
             font-weight: 600;
             padding-top: 5px;
+        }
+
+        .ruleButton>button:hover {
+            box-shadow: 2px 2px gray;
+        }
+
+        .ruleButton>button:active {
+            color: black;
+            background-color: #A7A1A1;
         }
 
         .postingButton>button {
@@ -149,10 +166,13 @@
             height: 35px;
             background-color: white;
             border-radius: 11px;
-            box-shadow: 2px 2px gray;
             border: solid 1.5px black;
             padding-top: 4px;
             
+        }
+
+        .postingButton>button:hover {
+            box-shadow: 2px 2px gray;
         }
 
         .postingButton>button>img {
@@ -327,7 +347,7 @@
         <div class="infoBox">
             <div class="infoTop">
                 <div class="teamId">dontgoaway</div>
-                <div class="followingButton"><button>팔로잉</button></div>
+                <div class="followingButton"><button>팔로우&nbsp;⌵</button></div>
                 <div class="ruleButton"><button>목표 / 규칙</button></div>
                 <div class="postingButton">
                     <button type="button" id="openModel">
