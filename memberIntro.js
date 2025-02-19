@@ -22,9 +22,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 $(document).ready(async function () {
-  $("#commenting").click(async function () {
-    let title = $("#title").val();
-    let content = $("#content").val();
-    let link = $("#link").val();
+  $("#submmit").click(async function () {
+    let isValid = true;
+    let comment = $("#commenting").val();
+    addDoc(collection(db, "commenting"), comment)
+
   });
 });
