@@ -98,6 +98,11 @@ header>hr {
     margin: 50px auto 20px auto;
 }
 
+.memberBox>a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
 .mid>hr {
     border: solid 1px rgba(90, 90, 90, 0.3);
     width: 1150px;
