@@ -109,7 +109,6 @@ hr {
 }
 
 
-
 .divider {
     width: 1px;
     height: 1000px;
@@ -141,10 +140,10 @@ hr {
 } */
 
 .tag {
-    width: 200%;
+    width: 100px;
     font-size: 13px;
     color: #E8344E;
-    margin: 0 auto;
+    margin: 250px auto 0px 80px;
 }
 
 
