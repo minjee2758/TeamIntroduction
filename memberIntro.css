@@ -124,11 +124,9 @@ hr {
 
 
 .slider__dot {
-    background-color: aquamarine;
     position: absolute;
-    left: 30%;
-    bottom: 135px;
-    transform: translateX(-50%);
+    margin: 1000px 300px 0px 460px;
+    transform: translateX(-40%);
 }
 
 /* .slider__dot .dot {
