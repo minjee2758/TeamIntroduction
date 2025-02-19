@@ -161,71 +161,85 @@
     <link rel="stylesheet" href="post.css" />
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-            import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-            import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-            import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 
-            // Firebase 구성 정보 설정
-            const firebaseConfig = {
-                apiKey: "AIzaSyCUJgTfcVLl2GaCpkRz8QKQi7ckahg5-vk",
-                authDomain: "teamintroduction-5a201.firebaseapp.com",
-                projectId: "teamintroduction-5a201",
-                storageBucket: "teamintroduction-5a201.firebasestorage.app",
-                messagingSenderId: "454018328605",
-                appId: "1:454018328605:web:b7e98d12da1bd75a35bef4",
-                measurementId: "G-YHLPYZ4FHW"
-            };
+        // Firebase 구성 정보 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUJgTfcVLl2GaCpkRz8QKQi7ckahg5-vk",
+            authDomain: "teamintroduction-5a201.firebaseapp.com",
+            projectId: "teamintroduction-5a201",
+            storageBucket: "teamintroduction-5a201.firebasestorage.app",
+            messagingSenderId: "454018328605",
+            appId: "1:454018328605:web:b7e98d12da1bd75a35bef4",
+            measurementId: "G-YHLPYZ4FHW"
+        };
 
-            // Firebase 인스턴스 초기화
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-            $(document).ready(function () {
-                //모달 열기
-                $("#openModel").click(function () {
-                    $("#myModal").css("display", "flex");
-                });
-                // 닫기 버튼 클릭 시 모달 닫기
-                $(".close").click(function () {
-                    $("#myModal").css("display", "none");
-                });
-                $("#postingbtn").click(function () {
-                    let isValid = true;
-
-                    let title = $("#title").val();
-                    let content = $("#content").val();
-                    let link = $("#link").val();
-                    let file = $("#file")[0].files.length;
-
-                    if (!title) {
-                        alert("제목을 입력해주세요.");
-                        isValid = false;
-                    }
-
-                    if (!content) {
-                        alert("내용을 입력해주세요.");
-                        isValid = false;
-                    }
-
-                    if (!link) {
-                        alert("링크를 입력해주세요.");
-                        isValid = false;
-                    }
-
-                    if (file === 0) {
-                        alert("파일을 업로드해주세요.");
-                        isValid = false;
-                    }
-
-                    if (isValid) {
-                        alert("게시글이 작성되었습니다.");
-                        $("#myModal").css("display", "none");
-                    }
-
-                });
+        $(document).ready(function () {
+            // 모달 열기
+            $("#openModel").click(function () {
+                $("#myModal").css("display", "flex");
             });
+
+            // 닫기 버튼 클릭 시 모달 닫기
+            $(".close").click(function () {
+                $("#myModal").css("display", "none");
+            });
+
+            $("#postingbtn").click(async function () {
+                let isValid = true;
+
+                let title = $("#title").val();
+                let content = $("#content").val();
+                let link = $("#link").val();
+                let file = $("#file")[0].files.length;
+
+                if (!title) {
+                    alert("제목을 입력해주세요.");
+                    isValid = false;
+                }
+
+                if (!content) {
+                    alert("내용을 입력해주세요.");
+                    isValid = false;
+                }
+
+                if (!link) {
+                    alert("링크를 입력해주세요.");
+                    isValid = false;
+                }
+
+                if (file === 0) {
+                    alert("파일을 업로드해주세요.");
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    alert("게시글이 작성되었습니다.");
+                    $("#myModal").css("display", "none");
+                }
+                //Firestore 저장하기
+                let doc = {
+                    'title': title,
+                    'content': content,
+                    'link': link,
+                    'file': file
+                };
+                await addDoc(collection(db, "postings"), doc);
+                alert('저장 완료!');
+                window.location.reload();
+                $("#myModal").css("display", "none");
+
+            });
+        });
+
     </script>
 </head>
 <header>
@@ -245,7 +259,7 @@
                 <div class="followingButton"><button>팔로잉</button></div>
                 <div class="ruleButton"><button>목표 / 규칙</button></div>
                 <div class="postingButton"><button type="button" id="openModel"><img src="image 7.png" alt="만들기">
-                    만들기</button></div>
+                        만들기</button></div>
             </div>
             <div class="infoMid">
                 <div class="followingSection">
@@ -262,6 +276,36 @@
             </div>
         </div>
     </div>
+
+    <!-- 모달 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="mypostingbox" id="postingbox">
+                <h3 style="text-align: center;">게시글 작성하기</h3>
+                <hr>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="title" placeholder="제목">
+                    <label for="title">제목</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="content" placeholder="내용">
+                    <label for="content">내용</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="url" class="form-control" id="link" placeholder="링크">
+                    <label for="link">링크</label>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="file">
+                </div>
+                <div class="mybtn">
+                    <button type="button" class="btn btn-danger" id="postingbtn">게시하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="mid">
         <div class="memberBox">
             <div class="memberList">
