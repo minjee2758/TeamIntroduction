@@ -34,7 +34,7 @@
     width: 1000px;
     display: flex;
     position: relative;
-    right: 200px;
+    right: 380px;
     top: 20px;
 }
 
@@ -45,7 +45,7 @@
     text-align: center;
     padding-top: 4em;
     cursor: pointer;
-    margin: 160px auto 0px auto;
+    margin: 410px auto 0px auto;
 }
 
 .toleft {
@@ -125,7 +125,7 @@ hr {
 
 .slider__dot {
     position: absolute;
-    margin: 1000px 300px 0px 460px;
+    margin: 1020px 300px 0px 460px;
     transform: translateX(-40%);
 }
 
@@ -148,7 +148,7 @@ hr {
     width: 100px;
     font-size: 13px;
     color: #E8344E;
-    margin: 150px 0px 0px -110px;
+    margin: 150px 0px 0px -295px;
 }
 
 
