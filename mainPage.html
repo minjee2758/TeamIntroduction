@@ -20,9 +20,17 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             font-family: 'GmarketSansMedium', sans-serif;
             font-size: 20px;
+            letter-spacing: 0.5px;
         }
 
         header>hr {
@@ -119,6 +127,9 @@
             color: white;
             box-shadow: 2px 2px gray;
             border: none;
+            font-family: 'GmarketSansLight', sans-serif;
+            font-weight: 600;
+            padding-top: 5px;
         }
 
         .ruleButton>button {
@@ -128,6 +139,9 @@
             border-radius: 11px;
             box-shadow: 2px 2px gray;
             border: none;
+            font-family: 'GmarketSansLight', sans-serif;
+            font-weight: 600;
+            padding-top: 5px;
         }
 
         .postingButton>button {
@@ -136,7 +150,21 @@
             background-color: white;
             border-radius: 11px;
             box-shadow: 2px 2px gray;
-            border: solid 1px black;
+            border: solid 1.5px black;
+            padding-top: 4px;
+            
+        }
+
+        .postingButton>button>img {
+            height: 25px;
+            width: 27px;
+            padding-bottom: 5px;
+            margin-right: 2px;
+        }
+        .postingButton>button>span {
+            font-family: 'GmarketSansLight', sans-serif;
+            font-weight: 600;
+            margin-right: 3px;
         }
 
         .introduceTitle {
@@ -275,8 +303,11 @@
                 <div class="teamId">dontgoaway</div>
                 <div class="followingButton"><button>팔로잉</button></div>
                 <div class="ruleButton"><button>목표 / 규칙</button></div>
-                <div class="postingButton"><button type="button" id="openModel"><img src="image 7.png" alt="만들기">
-                        만들기</button></div>
+                <div class="postingButton">
+                    <button type="button" id="openModel">
+                    <img src="image 7.png" alt="만들기">
+                    <span>만들기</span></button>
+                </div>
             </div>
             <div class="infoMid">
                 <div class="followingSection">
