@@ -195,64 +195,65 @@
         const db = getFirestore(app);
 
         $(document).ready(function () {
-    // 모달 열기
-    $("#openModel").click(function () {
-        $("#myModal").css("display", "flex");
-    });
+            // 모달 열기
+            $("#openModel").click(function () {
+                $("#myModal").css("display", "flex");
+            });
 
-    // 닫기 버튼 클릭 시 모달 닫기
-    $(".close").click(function () {
-        $("#myModal").css("display", "none");
-    });
+            // 닫기 버튼 클릭 시 모달 닫기
+            $(".close").click(function () {
+                $("#myModal").css("display", "none");
+            });
 
-    $("#postingbtn").click(async function () {
-        let isValid = true;
+            $("#postingbtn").click(async function () {
+                let isValid = true;
 
-        let title = $("#title").val();
-        let content = $("#content").val();
-        let link = $("#link").val();
-        let file = $("#file")[0].files.length;
+                let title = $("#title").val();
+                let content = $("#content").val();
+                let link = $("#link").val();
+                let file = $("#file")[0].files[0];  // 파일 선택된 파일을 가져옴
 
-        if (!title) {
-            alert("제목을 입력해주세요.");
-            isValid = false;
-        }
+                if (!title || !content || !link || !file) {
+                    alert("모든 항목을 입력해주세요.");
+                    isValid = false;
+                }
 
-        if (!content) {
-            alert("내용을 입력해주세요.");
-            isValid = false;
-        }
+                if (isValid) {
+                    alert("게시글이 작성되었습니다.");
+                    $("#myModal").css("display", "none");
 
-        if (!link) {
-            alert("링크를 입력해주세요.");
-            isValid = false;
-        }
+                    // 파일 URL 생성
+                    let fileURL = "";
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (e) {
+                            fileURL = e.target.result;  // data URL 형태로 파일의 URL을 가져옴
+                            console.log("파일 URL:", fileURL);
 
-        if (file === 0) {
-            alert("파일을 업로드해주세요.");
-            isValid = false;
-        }
+                            // Firestore에 데이터 저장
+                            let doc = {
+                                'title': title,
+                                'content': content,
+                                'link': link,
+                                'fileURL': fileURL // 파일 URL을 Firestore에 저장
+                            };
 
-        if (isValid) {
-            alert("게시글이 작성되었습니다.");
-            $("#myModal").css("display", "none");
-        }
-        
-        //Firestore 저장하기
-        let doc = {
-            'title': title,
-            'content': content,
-            'link': link,
-            'file': file
-        };
-        
-        await addDoc(collection(db, "postings"), doc);
-        alert('저장 완료!');
-        window.location.reload();
-        $("#myModal").css("display", "none");
+                            addDoc(collection(db, "postings"), doc)
+                                .then(() => {
+                                    alert('저장 완료!');
+                                    window.location.reload();
+                                })
+                                .catch((error) => {
+                                    console.error("에러 발생: ", error);
+                                    alert("저장 중 오류 발생");
+                                });
+                        };
+                        reader.readAsDataURL(file);  // 파일을 읽어서 data URL로 변환
+                    }
+                }
+            });
+        });
 
-    });
-});
     </script>
 </head>
 <header>
