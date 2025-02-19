@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(async function () {
     // 모달 열기
     $("#openModel").click(function () {
         $("#myModal").css("display", "flex");
@@ -54,5 +54,32 @@ $(document).ready(function () {
         window.location.reload();
         $("#myModal").css("display", "none");
 
+    });
+
+        //getDocs 추가한 부분
+    let docs = await getDocs(collection(db, "postings"));
+    docs.forEach((doc) => {
+      let row = doc.data();
+      console.log(row);
+      let link = row['link'];
+      let title = row['title'];
+      let content = row['content'];
+      let file = row['file'];
+
+      let temp_html =
+        `<div class="col">
+              <div class="card h-100">
+                <img src="${file}">
+                <div class="card-body">
+                  <h5 class="card-title">${title}</h5>
+                  <p class="card-text">${content}</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">${link}</small>
+                </div>
+              </div>
+            </div>
+            `
+      $("#card").append(temp_html);
     });
 });
