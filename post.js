@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // 버튼 클릭 시 모달 열기
+    // 모달 열기
     $("#openModel").click(function () {
         $("#myModal").css("display", "flex");
     });
@@ -9,7 +9,7 @@ $(document).ready(function () {
         $("#myModal").css("display", "none");
     });
 
-    $("#postingbtn").click(function () {
+    $("#postingbtn").click(async function () {
         let isValid = true;
 
         let title = $("#title").val();
@@ -41,6 +41,17 @@ $(document).ready(function () {
             alert("게시글이 작성되었습니다.");
             $("#myModal").css("display", "none");
         }
+        //Firestore 저장하기
+        let doc = {
+            'title': title,
+            'content': content,
+            'link': link,
+            'file': file
+        };
+        await addDoc(collection(db, "postings"), doc);
+        alert('저장 완료!');
+        window.location.reload();
+        $("#myModal").css("display", "none");
 
     });
 });
