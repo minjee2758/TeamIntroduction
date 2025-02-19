@@ -116,10 +116,12 @@ hr {
 
 
 .divider {
-    width: 1px;
-    height: 1000px;
-    background-color: lightgrey;
-    margin: 0 auto;
+    border-left: 1px solid lightgrey;
+    height: 1500px;
+    position: absolute;
+    left: 52.5%;
+    margin-left: -10px;
+    top: 14.5%;
 }
 
 
