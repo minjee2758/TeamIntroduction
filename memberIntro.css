@@ -68,7 +68,7 @@ body {
     text-align: center;
     padding-top: 4em;
     cursor: pointer;
-    margin: 150px 0px 0px 0px;
+    margin: 110px 0px 0px 0px;
 }
 
 .toleft {
@@ -138,8 +138,8 @@ hr {
 
 .slider__dot {
     position: absolute;
-    bottom: 150px;  /* 아래로 이동 (값 조정 가능) */
-    left: 38%;
+    bottom: 220px;  /* 아래로 이동 (값 조정 가능) */
+    left: 50%;
     transform: translateX(-50%);
 }
 
@@ -163,8 +163,8 @@ hr {
     font-size: 13px;
     color: #E8344E;
     position: absolute;
-    top: 750px;  /* 위쪽으로 이동 */
-    left: -135px; /* 왼쪽으로 이동 */
+    top: 700px;  /* 위쪽으로 이동 */
+    left: -60px; /* 왼쪽으로 이동 */
 }
 
 
