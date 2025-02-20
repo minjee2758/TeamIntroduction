@@ -105,7 +105,7 @@ $(document).ready(async function () {
             `<div class="col">
                     <div class="card h-100">
                         <a href="${link}">
-                            <img src="${fileURL}"
+                            <img src="${fileURL}" style="width: 377.33px; height: 377.33px;"
                                 class="card-img-top" alt="...">
                         </a>
                         <div class="overlay">
