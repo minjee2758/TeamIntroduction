@@ -22,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 $(document).ready(async function () {
-  const q = query(collection(db, "commenting"), orderBy("timestamp", "asc"));
+  const q = query(collection(db, "commentingGa"), orderBy("timestamp", "asc"));
 
 
   onSnapshot(q, (snapshot) => {
@@ -36,19 +36,19 @@ $(document).ready(async function () {
 })
   
   $("#submmit").click(async function () {
-    let comment = $("#commenting").val();
+    let comment = $("#commentingGa").val();
 
     if (comment === "") {
       alert("댓글을 입력해주세요!");
       return;
     }
     try {
-      await addDoc(collection(db, "commenting"), {
+      await addDoc(collection(db, "commentingGa"), {
         text: comment,
         timestamp: new Date(),
       });
       console.log("댓글 게시 완료");
-      $("#commenting").val(""); // 입력창 비우기
+      $("#commentingGa").val(""); // 입력창 비우기
     } catch (error) {
       console.error("Error ", error);
       alert("댓글 저장에 실패했습니다.");
