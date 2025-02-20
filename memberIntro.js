@@ -23,9 +23,22 @@ const db = getFirestore(app);
 
 $(document).ready(async function () {
   $("#submmit").click(async function () {
-    let isValid = true;
     let comment = $("#commenting").val();
-    addDoc(collection(db, "commenting"), comment)
+
+    if (comment === "") {
+        alert("댓글을 입력해주세요!");
+        return;
+      }
+    addDoc(collection(db, "commenting"), {text : comment})
+
+    try {
+        await addDoc(collection(db, "commenting"), { text: comment, timestamp: new Date() });
+        console.log("댓글 게시 완료")
+        $("#commenting").val(""); // 입력창 비우기
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        alert("댓글 저장에 실패했습니다.");
+      }
 
   });
 });
