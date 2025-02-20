@@ -41,7 +41,7 @@ body {
     display: flex;
     justify-content: center;
     position: absolute;
-    top:800px;
+    top:660px;
     left: 50%;
     transform: translate(-50%, -50%);
     gap: 0px; 
@@ -171,6 +171,9 @@ hr {
 .rightContainer {
     padding: 60px;
     width: 550px;
+}
+.leftContainer {
+    width: 700px;
 }
 
 .topInfo {
