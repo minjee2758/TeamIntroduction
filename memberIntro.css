@@ -170,7 +170,7 @@ hr {
 
 .rightContainer {
     padding: 60px;
-    width: 550px;
+    width: 750px;
 }
 .leftContainer {
     width: 700px;
@@ -181,12 +181,12 @@ hr {
     margin-bottom: 120px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: 30px;
     height: 200px;
 }
 
 .basicInfo {
-    margin-right: 40px;
+    margin-right:70px;
     flex-direction: column;
     /* 내부 요소를 세로 정렬 */
     text-align: center;
@@ -200,7 +200,7 @@ hr {
 
 .otherInfo1 {
     display: flex;
-    gap: 45px;
+    gap: 100px;
     margin-bottom: 110px;
 }
 
