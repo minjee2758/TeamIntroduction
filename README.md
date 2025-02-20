@@ -29,6 +29,13 @@
  ┣ 📂img
  ┃ ┣ 📂profile
  ┣ 📂pages
+ ┃ ┣ 📂Js
+ ┃ ┃ ┣ 📜mainPage.js
+ ┃ ┃ ┣ 📜memberIntroDa.js
+ ┃ ┃ ┣ 📜memberIntroGa.js
+ ┃ ┃ ┣ 📜memberIntroM.js
+ ┃ ┃ ┣ 📜memberIntroT.js
+ ┃ ┃ ┗ 📜post.js
  ┃ ┣ 📜mainPage.html
  ┃ ┣ 📜mainPage.js
  ┃ ┣ 📜memberIntro.html
