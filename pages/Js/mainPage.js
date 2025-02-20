@@ -110,7 +110,7 @@ $(document).ready(async function () {
             let temp_html =
             `<div class="col">
                     <div class="card h-100">
-                        <a href="${link}">
+                        <a href="${link}" target="blank">
                             <img src="${fileURL}" style="width: 377.33px; height: 377.33px;"
                                 class="card-img-top" alt="...">
                         </a>
