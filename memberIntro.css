@@ -231,7 +231,6 @@ hr {
     display: flex;
     text-align: center;
     align-items: center;
-    gap: 30px;
     border: 1px solid #E8344E;
     border-radius: 20px;
     padding-left: 20px;
@@ -260,15 +259,27 @@ hr {
 
 .commentList{
     background-color: #E8344E;
-    padding: 30px;
+    padding: 20px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    overflow: hidden;
+    overflow-y : auto;
+    align-items: flex-end;
 }
 
 .speech-bubble {
     position: relative;
-    background: #c0cdce;
+    background: #D9D9D9;
     border-radius: 15px;
-    display: inline;
+    display: inline-block;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 70%;
     padding: 10px;
+    font-size: 15px;
+    color: #616161;
     }
     
     .speech-bubble:after {
@@ -279,7 +290,7 @@ hr {
     width: 0;
     height: 0;
     border: 20px solid transparent;
-    border-left-color: #c0cdce;
+    border-left-color: #D9D9D9;
     border-right: 0;
     border-bottom: 0;
     margin-top: -5px;
