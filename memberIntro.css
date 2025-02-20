@@ -186,7 +186,7 @@ hr {
 }
 
 .basicInfo {
-    margin-right: 50px;
+    margin-right: 40px;
     flex-direction: column;
     /* 내부 요소를 세로 정렬 */
     text-align: center;
@@ -200,7 +200,7 @@ hr {
 
 .otherInfo1 {
     display: flex;
-    gap: 80px;
+    gap: 45px;
     margin-bottom: 110px;
 }
 
@@ -211,7 +211,7 @@ hr {
 }
 
 .profileImage>img {
-    width: 200px;
+    width: 170px;
     margin-bottom: 70px;
 }
 
