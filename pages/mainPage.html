@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/mainPage.css" />
+    <link rel="stylesheet" href="/styles/post.css" />
+    <script type="module" src="/pages/Js/mainPage.js"></script>
+    <script>
+        $(document).on('click', '#followingButton', function () {
+            $('.followingBtn').empty();
+            let temp_html = `
+                <button id="unFollowingButton">팔로우
+                    <img src="/img/a1.png" width="15" height="9">
+                </button>`;
+            $('.followingBtn').append(temp_html);
+        });
+        $(document).on('click', '#unFollowingButton', function () {
+            $('.followingBtn').empty();
+            let temp_html = `
+                <button id="followingButton">팔로잉&nbsp;⌵</button>`;
+            $('.followingBtn').append(temp_html);
+        });
+    </script>
+</head>
+<header>
+    <a href="/mainPage.html">
+        <img src="/img/logo.webp" class="mainLogo"> </a>
+    <hr>
+</header>
+
+<body>
+    <div class="top">
+        <div class="imgBox">
+            <img src="https://velog.velcdn.com/images/harvard--/post/d81f019c-f61f-4bcb-964c-5dcf18b81706/image.png">
+        </div>
+        <div class="infoBox">
+            <div class="infoTop">
+                <div class="teamId">dontgoaway</div>
+                <div class="followingBtn"><button id="followingButton">팔로잉&nbsp;⌵</button></div>
+                <div class="ruleButton"><a
+                        href="https://teamsparta.notion.site/23-19d2dc3ef514805b8c45f97947e0fc9e" target="blank"><button>목표 /
+                            규칙</button></a></div>
+                <div class="postingButton">
+                    <button type="button" id="openModel">
+                        <img src="/img/image 7.png" alt="만들기">
+                        <span>만들기</span></button>
+                </div>
+            </div>
+            <div class="infoMid">
+                <div class="followingSection">
+                    <span>게시물 25</span>
+                    <span>팔로우 2</span>
+                    <span>팔로잉 21</span>
+                </div>
+            </div>
+            <div class="infoBottom">
+                <div class="introduceTitle"><b>한명이 사라졌조</b></div><br>
+                <div class="introduceDetail"><span>안녕하세요. 다섯 명으로 시작해 네 명이 된 한 명이 사라졌조입니다.</span>
+                    <p>모두 I인 팀이라 내적 친밀감만 쌓다가 이제 친해졌어요 (저희 친해요^^)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="mypostingbox" id="postingbox">
+                <h3 style="text-align: center;">게시글 작성하기</h3>
+                <hr>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="title" placeholder="제목">
+                    <label for="title">제목</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="content" placeholder="내용">
+                    <label for="content">내용</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="url" class="form-control" id="link" placeholder="링크">
+                    <label for="link">링크</label>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="file">
+                </div>
+                <div class="mybtn">
+                    <button type="button" class="btn btn-danger" id="postingbtn">게시하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mid">
+        <div class="memberBox">
+            <a href="gaIntro.html">
+                <div class="memberList">
+                    <img
+                        src="https://velog.velcdn.com/images/harvard--/post/ee7e9076-1e68-46cc-bd3d-f0abecc4d4fe/image.png">
+                    <br><b>백가희</b>
+                </div>
+            </a>
+            <a href="taeIntro.html">
+            <div class="memberList"><img
+                    src="https://velog.velcdn.com/images/harvard--/post/9f8861f3-889d-49fb-9a6c-32dae073cd61/image.png">
+                <br><b>김태익</b>
+            </div>
+            </a>
+            <a href="daIntro.html">
+            <div class="memberList"><img
+                    src="https://velog.velcdn.com/images/harvard--/post/61c6f68f-e752-4ebe-b390-1239ce2ea1a3/image.png">
+                <br><b>강다연</b>
+            </div>
+            </a>
+            <a href="minIntro.html">
+            <div class="memberList"><img
+                    src="https://velog.velcdn.com/images/harvard--/post/83d1b55e-e980-41cd-9002-41652ffe6261/image.png">
+                <br><b>임민지</b>
+            </div>
+            </a>
+            <div class="memberList"><img
+                    src="https://velog.velcdn.com/images/harvard--/post/8736fbd3-69aa-41cc-a895-2e78dc2365f9/image.png">
+                <br><b>?</b>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="bottom">
+        <div class="board">
+            <div id="card" class="row row-cols-1 row-cols-md-3 g-3">
+               
+        </div>
+    </div>
+</body>
+
+</html>
