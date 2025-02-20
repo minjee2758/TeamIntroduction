@@ -5,7 +5,7 @@ import {
   collection,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // Firebase 구성 정보 설정
 const firebaseConfig = {
@@ -22,14 +22,18 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 $(document).ready(async function () {
+  const q = query(collection(db, "commenting"), orderBy("timestamp", "asc"));
 
-    let doc = await getDocs(collection(db, "commenting"));
-    doc.forEach((doc) => {
-      let commentData = doc.data();
-      let temp_html = `<div class="speech-bubble">${commentData.text}</div>`;
-      $(".commentList").append(temp_html);
-  
-  });
+
+  onSnapshot(q, (snapshot) => {
+    $(".commentList").empty();
+
+    snapshot.docs.forEach((doc) => {
+            let commentData = doc.data();
+            let temp_html = `<div class="speech-bubble">${commentData.text}</div>`;
+            $(".commentList").append(temp_html);
+        });
+})
   
   $("#submmit").click(async function () {
     let comment = $("#commenting").val();
@@ -38,8 +42,6 @@ $(document).ready(async function () {
       alert("댓글을 입력해주세요!");
       return;
     }
-    addDoc(collection(db, "commenting"), { text: comment });
-
     try {
       await addDoc(collection(db, "commenting"), {
         text: comment,
@@ -48,7 +50,7 @@ $(document).ready(async function () {
       console.log("댓글 게시 완료");
       $("#commenting").val(""); // 입력창 비우기
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.error("Error ", error);
       alert("댓글 저장에 실패했습니다.");
     }
   });
