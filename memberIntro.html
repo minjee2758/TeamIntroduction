@@ -91,7 +91,7 @@
                     <div class="otherInfo1">
                         <div class="birth">
                             <span class="BoldText">030920</span>
-                            생년월일
+                            <p>생년월일</p>
                         </div>
                         <div class="MBTI">
                             <span class="BoldText">INFP</span>
@@ -136,9 +136,11 @@
 
 <script type="module">
     $(document).ready(function () {
+    $(".slide").css("transform", "translateX(-200px)");
+
     let currentIndex = 0; // 현재 슬라이드 인덱스
     const totalSlides = $(".slides").length; // 전체 슬라이드 개수
-    const slideWidth = $(".slides").outerWidth(); // 한 슬라이드의 실제 너비 (margin 포함)
+    const slideWidth = $(".content-wrapper").width();
 
     function updateSlide(index) {
         $(".content").css("transform", `translateX(-${index * slideWidth}px)`); // 슬라이드 이동
