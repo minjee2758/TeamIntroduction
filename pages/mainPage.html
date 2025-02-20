@@ -14,15 +14,26 @@
     <link rel="stylesheet" href="/styles/mainPage.css" />
     <link rel="stylesheet" href="/styles/post.css" />
     <script type="module" src="mainPage.js"></script>
-
+    <script>
+        $(document).on('click', '#followingButton', function () {
+            $('.followingBtn').empty();
+            let temp_html = `
+    <button id="unFollowingButton">팔로우&nbsp;<img src="/img/a1.png" width="15" height="9"></button></div>`;
+            $('.followingBtn').append(temp_html);
+        });
+        $(document).on('click', '#unFollowingButton', function () {
+            $('.followingBtn').empty();
+            let temp_html = `
+    <button id="followingButton">팔로잉&nbsp;⌵</button></div>`;
+            $('.followingBtn').append(temp_html);
+        });
+    </script>
 </head>
 <header>
     <a href="/pages/mainPage.html">
-    <img src="/img/logo.webp"
-        class="mainLogo"> </a>
+        <img src="/img/logo.webp" class="mainLogo"> </a>
     <hr>
 </header>
-
 <body>
     <div class="top">
         <div class="imgBox">
@@ -31,8 +42,10 @@
         <div class="infoBox">
             <div class="infoTop">
                 <div class="teamId">dontgoaway</div>
-                <div class="followingButton"><button>팔로잉&nbsp;⌵</button></div>
-                <div class="ruleButton"><a href="https://teamsparta.notion.site/23-19d2dc3ef514805b8c45f97947e0fc9e"><button>목표 / 규칙</button></a></div>
+                <div class="followingBtn"><button id="followingButton">팔로잉&nbsp;⌵</button></div>
+                <div class="ruleButton"><a
+                        href="https://teamsparta.notion.site/23-19d2dc3ef514805b8c45f97947e0fc9e"><button>목표 /
+                            규칙</button></a></div>
                 <div class="postingButton">
                     <button type="button" id="openModel">
                         <img src="/img/image 7.png" alt="만들기">
@@ -86,12 +99,12 @@
     <div class="mid">
         <div class="memberBox">
             <a href="memberIntro.html">
-            <div class="memberList">
-                <img
-                    src="https://velog.velcdn.com/images/harvard--/post/ee7e9076-1e68-46cc-bd3d-f0abecc4d4fe/image.png">
-                <br><b>백가희</b>
-            </div>
-        </a>
+                <div class="memberList">
+                    <img
+                        src="https://velog.velcdn.com/images/harvard--/post/ee7e9076-1e68-46cc-bd3d-f0abecc4d4fe/image.png">
+                    <br><b>백가희</b>
+                </div>
+            </a>
             <div class="memberList"><img
                     src="https://velog.velcdn.com/images/harvard--/post/9f8861f3-889d-49fb-9a6c-32dae073cd61/image.png">
                 <br><b>김태익</b>
