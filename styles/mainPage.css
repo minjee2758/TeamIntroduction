@@ -254,3 +254,7 @@ header>hr {
 .card:hover .overlay {
     opacity: 1;
 }
+
+.bottom {
+    margin-bottom: 300px;
+}
