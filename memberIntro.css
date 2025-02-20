@@ -139,7 +139,7 @@ hr {
 .slider__dot {
     position: absolute;
     bottom: 220px;  /* 아래로 이동 (값 조정 가능) */
-    left: 50%;
+    left: 48%;
     transform: translateX(-50%);
 }
 
@@ -164,7 +164,7 @@ hr {
     color: #E8344E;
     position: absolute;
     top: 720px;  /* 위쪽으로 이동 */
-    left: -55px; /* 왼쪽으로 이동 */
+    left: -120px; /* 왼쪽으로 이동 */
 }
 
 
