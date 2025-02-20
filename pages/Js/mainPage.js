@@ -1,8 +1,9 @@
 // Firebase SDK 라이브러리 가져오기
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 
 // Firebase 구성 정보 설정 
@@ -73,7 +74,8 @@ $(document).ready(async function () {
                         'title': title,
                         'content': content,
                         'link': link,
-                        'fileURL': fileURL // 파일 URL을 Firestore에 저장
+                        'fileURL': fileURL, // 파일 URL을 Firestore에 저장
+                        'timestamp' : new Date()
                     };
 
                     addDoc(collection(db, "postings"), doc)
@@ -92,16 +94,20 @@ $(document).ready(async function () {
 
     });
     //getDocs 추가한 부분
-    let docs = await getDocs(collection(db, "postings"));
-    docs.forEach((doc) => {
-        let row = doc.data();
-        console.log(row);
-        let link = row['link'];
-        let title = row['title'];
-        let content = row['content'];
-        let fileURL = row['fileURL'];
 
-        let temp_html =
+    const m = query(collection(db, "postings"), orderBy("timestamp", "asc"));
+
+    onSnapshot(m, (snapshot) => {
+        $("#card").empty();
+
+        snapshot.docs.forEach((doc) => {
+            let row = doc.data();
+            console.log(row);
+            let link = row['link'];
+            let title = row['title'];
+            let content = row['content'];
+            let fileURL = row['fileURL'];        
+            let temp_html =
             `<div class="col">
                     <div class="card h-100">
                         <a href="${link}">
@@ -116,5 +122,7 @@ $(document).ready(async function () {
                 </div>`
 
         $("#card").append(temp_html);
+    
+    });
     });
 });
