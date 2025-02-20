@@ -131,7 +131,7 @@ header>hr {
     border: solid 2px #E8344E;
 }
 
-.ruleButton>button {
+.ruleButton>a>button {
     width: 120px;
     height: 35px;
     background-color: #D9D9D9;
@@ -142,11 +142,11 @@ header>hr {
     padding-top: 5px;
 }
 
-.ruleButton>button:hover {
+.ruleButton>a>button:hover {
     box-shadow: 2px 2px gray;
 }
 
-.ruleButton>button:active {
+.ruleButton>a>button:active {
     color: black;
     background-color: #A7A1A1;
 }
