@@ -64,11 +64,11 @@ body {
 /* .slide * {display: inline-block;} */
 .toleft,
 .toright {
-    width: 10%;
+    width: 5%;
     text-align: center;
     padding-top: 4em;
     cursor: pointer;
-    margin: 100px 0px 0px 0px;
+    margin: 150px 0px 0px 0px;
 }
 
 .toleft {
@@ -138,8 +138,8 @@ hr {
 
 .slider__dot {
     position: absolute;
-    bottom: 155px;  /* 아래로 이동 (값 조정 가능) */
-    left: 43%;
+    bottom: 150px;  /* 아래로 이동 (값 조정 가능) */
+    left: 38%;
     transform: translateX(-50%);
 }
 
@@ -164,7 +164,7 @@ hr {
     color: #E8344E;
     position: absolute;
     top: 750px;  /* 위쪽으로 이동 */
-    left: -100px; /* 왼쪽으로 이동 */
+    left: -135px; /* 왼쪽으로 이동 */
 }
 
 
