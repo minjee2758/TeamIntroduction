@@ -58,7 +58,7 @@ body {
     width: 1000px;
     display: flex;
     position: relative;
-    top: 20px;
+    top: 60px;
 }
 
 /* .slide * {display: inline-block;} */
@@ -163,8 +163,8 @@ hr {
     font-size: 13px;
     color: #E8344E;
     position: absolute;
-    top: 700px;  /* 위쪽으로 이동 */
-    left: -60px; /* 왼쪽으로 이동 */
+    top: 720px;  /* 위쪽으로 이동 */
+    left: -55px; /* 왼쪽으로 이동 */
 }
 
 
