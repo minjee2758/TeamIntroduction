@@ -89,12 +89,12 @@ body {
 
 .content {
     display: flex;
-    width: 500%; /* 5개의 슬라이드가 가로로 배치되도록 설정 (100% * 5) */
+    width: 300%; /* 5개의 슬라이드가 가로로 배치되도록 설정 (100% * 5) */
     transition: transform 0.5s ease-in-out;
 }
 
 .slides {
-    flex: 0 0 20%; /* 5개의 사진을 동일한 크기로 설정 (100% / 5 = 20%) */
+    flex: 0 0 34%; /* 5개의 사진을 동일한 크기로 설정 (100% / 5 = 20%) */
     display: flex;
     justify-content: center;
     align-items: center;
